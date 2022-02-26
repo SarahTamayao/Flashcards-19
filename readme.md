@@ -7,7 +7,7 @@ Base setup for flashcards app.
 
 ### App Walk-though
 
-<img src="https://i.imgur.com/eTt32Tl.gif" width=200><br>
+<img src="https://github.com/vilinh/Flashcards/raw/main/Lab1Codepath.gif" width=200><br>
 
 ## Required
 - [X] Create New Project in Xcode
