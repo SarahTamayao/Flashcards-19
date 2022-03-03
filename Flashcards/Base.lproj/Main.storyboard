@@ -20,22 +20,29 @@
                                 <rect key="frame" x="40" y="195" width="335" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first local variable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-cv-rwq">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjX-Td-Nl1">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="169"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.33275436753328425" green="0.65837254211959795" blue="0.74058218100636275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What does R5 point at in a stack frame?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-Bz-SoR">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="169"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first local variable" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xb2-cv-rwq">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="169"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What does R5 point at in a stack frame?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-Bz-SoR">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="169"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -43,12 +50,62 @@
                                     <outletCollection property="gestureRecognizers" destination="9dr-Ha-51e" appends="YES" id="2OH-tb-5iO"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qg-ya-B9Z">
+                                <rect key="frame" x="82" y="436" width="250" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="The top of the stack" cornerStyle="small">
+                                    <backgroundConfiguration key="background" strokeWidth="1">
+                                        <color key="strokeColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" red="0.23752475542108906" green="0.46995559578125157" blue="0.52863799419599711" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="KUP-UC-ajq" appends="YES" id="0d2-CS-UpJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiT-a5-CVn">
+                                <rect key="frame" x="82" y="585" width="250" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="The bottom of the stack" cornerStyle="small">
+                                    <backgroundConfiguration key="background" strokeWidth="1">
+                                        <color key="strokeColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="254-Ew-hU6" appends="YES" id="mlC-R5-e5R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8GV-4R-8F6">
+                                <rect key="frame" x="82" y="512" width="250" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="The first local variable" cornerStyle="small">
+                                    <backgroundConfiguration key="background" strokeWidth="1">
+                                        <color key="strokeColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" red="0.23752475540000001" green="0.46995559580000001" blue="0.52863799420000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="86J-Lg-CmS" appends="YES" id="XBY-E2-VcV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="Answer1" destination="9qg-ya-B9Z" id="zIT-Ja-4CT"/>
+                        <outlet property="Answer2" destination="8GV-4R-8F6" id="Dpv-6D-eBM"/>
+                        <outlet property="Answer3" destination="SiT-a5-CVn" id="1t1-LU-4Yd"/>
+                        <outlet property="Labels" destination="AjX-Td-Nl1" id="hdt-7K-QQl"/>
                         <outlet property="answerLabel" destination="UkD-Bz-SoR" id="Y4U-qa-q9O"/>
+                        <outlet property="card" destination="BZZ-2P-VmP" id="BJe-fw-E7h"/>
                         <outlet property="questionLabel" destination="UkD-Bz-SoR" id="gaH-nd-98U"/>
                     </connections>
                 </viewController>
@@ -58,6 +115,21 @@
                         <action selector="didTapOnFlashCard:" destination="BYZ-38-t0r" id="vMq-W1-6WP"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="KUP-UC-ajq">
+                    <connections>
+                        <action selector="didTapAnswerOne:" destination="BYZ-38-t0r" id="TXd-Uq-dIR"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="86J-Lg-CmS">
+                    <connections>
+                        <action selector="didTapAnswer2:" destination="BYZ-38-t0r" id="PSt-4b-reU"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="254-Ew-hU6">
+                    <connections>
+                        <action selector="didTapAnswer3:" destination="BYZ-38-t0r" id="bV7-6x-TBv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="31.884057971014496" y="39.508928571428569"/>
         </scene>
@@ -65,9 +137,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
