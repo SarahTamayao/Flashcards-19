@@ -9,9 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var answerLabel: UILabel!
     
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
     
     @IBOutlet weak var card: UIView!
     
@@ -40,6 +40,14 @@ class ViewController: UIViewController {
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        creationController.flashcardController = self
+    }
+    
     @IBAction func didTapOnFlashCard(_ sender: Any) {
         questionLabel.isHidden = !questionLabel.isHidden
     }
@@ -54,6 +62,11 @@ class ViewController: UIViewController {
     
     @IBAction func didTapAnswer3(_ sender: Any) {
         Answer3.isHidden = true
+    }
+    
+    func updateFlashCard(question: String, answer: String){
+        questionLabel.text = question;
+        answerLabel.text = answer;
     }
 }
 
