@@ -3,12 +3,10 @@
 ## Lab 2
 
 ### App Description
-`Allow user to create flashcard for question and answer.
+`Allow user to create and edit flashcards.
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
-
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="https://github.com/vilinh/Flashcards/blob/main/Lab2CodepathBaseOpt.gif?raw=true" width=200><br>
 
 ## Required
 - [X] User can open the creation screen
