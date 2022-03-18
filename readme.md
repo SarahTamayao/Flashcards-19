@@ -17,8 +17,8 @@
 - [X] Push code to GitHub
 ## Optional
 - [ ] User gets an error if they try to create a new flashcard with no question or answer
-- [ ] User can edit existing flashcard
-- [ ] User can add multiple choice answers in the creation screen
+- [X] User can edit existing flashcard
+- [X] User can add multiple choice answers in the creation screen
 
 ## Lab 1
 

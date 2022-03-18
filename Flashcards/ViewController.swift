@@ -46,6 +46,14 @@ class ViewController: UIViewController {
         let creationController = navigationController.topViewController as! CreationViewController
         
         creationController.flashcardController = self
+        
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = questionLabel.text
+            creationController.initialAnswer0 = Answer1.currentTitle
+            creationController.initialAnswer1 = Answer2.currentTitle
+            creationController.initialAnswer2 = Answer3.currentTitle
+            
+        }
     }
     
     @IBAction func didTapOnFlashCard(_ sender: Any) {
@@ -64,9 +72,13 @@ class ViewController: UIViewController {
         Answer3.isHidden = true
     }
     
-    func updateFlashCard(question: String, answer: String){
+    func updateFlashCard(question: String, answer0: String, answer1: String, answer2: String){
         questionLabel.text = question;
-        answerLabel.text = answer;
+        answerLabel.text = answer1;
+        
+        Answer1.setTitle(answer0, for: .normal)
+        Answer2.setTitle(answer1, for: .normal)
+        Answer3.setTitle(answer2, for: .normal)
     }
 }
 
