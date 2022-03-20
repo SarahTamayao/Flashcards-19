@@ -131,20 +131,13 @@ class ViewController: UIViewController {
             currentIndex = flashcards.count - 1
         }
         
-        if flashcards.isEmpty {
-            questionLabel.text = "No flashcards in deck. Tap + to add one."
-            answerLabel.text = "No flashcards in deck. Tap + to add one."
-            saveAllFlashcardstoDisk()
-            return
-        }
-        
         updatePrevNextButtons()
         updateLabels()
         saveAllFlashcardstoDisk()
     }
     
     func updateFlashCard(question: String, answer0: String, answer1: String, answer2: String, isExisting: Bool){
-        let flashcard = FlashCard(question: question, answer: answer1, xAnswer1: answer0, xAnswer2: answer2)
+        let flashcard = FlashCard(question: question, answer: answer0, xAnswer1: answer1, xAnswer2: answer2)
         
         if isExisting {
             flashcards[currentIndex] = flashcard
