@@ -6,7 +6,7 @@
 User can add, delete, and edit flashcards with multiple choice options. App will save previously created flashcards.
 
 ### App Walk-though
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="https://github.com/vilinh/Flashcards/blob/main/Lab3CodePath.gif?raw=true" width=200><br>
 
 ## Required
 - [X] User can browse through multiple flashcards
