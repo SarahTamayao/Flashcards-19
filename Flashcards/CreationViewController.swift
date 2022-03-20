@@ -27,7 +27,7 @@ class CreationViewController: UIViewController {
         answerTextField.text = initialAnswer0
         exAnswer1.text = initialAnswer1
         exAnswer2.text = initialAnswer2
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -42,20 +42,24 @@ class CreationViewController: UIViewController {
         let ans1 = exAnswer1.text
         let ans2 = exAnswer2.text
         
+        var existing = false
+        if initialQuestion != nil {
+            existing = true
+        }
+
         if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
             
             let alert = UIAlertController(title: "Missing Text", message: "You need to enter both a question and an answer.", preferredStyle:.alert);
             
             let okAction = UIAlertAction(title: "Ok", style: .default)
-            
             alert.addAction(okAction)
             
-            present(alert, animated: true)
+            present(alert, animated: true, completion: nil)
         } else {
-            flashcardController.updateFlashCard(question: questionText!, answer0: answerText!, answer1: ans1!, answer2: ans2!)
+            flashcardController.updateFlashCard(question: questionText!, answer0: answerText!, answer1: ans1!, answer2: ans2!, isExisting: existing)
+            dismiss(animated: true)
         }
         
-        dismiss(animated: true)
     }
     
     
