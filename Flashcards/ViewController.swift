@@ -36,6 +36,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var deleteButton: UIButton!
     
+    @IBOutlet weak var multChoiceButton: UIButton!
+    
+    var mc = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -78,6 +82,22 @@ class ViewController: UIViewController {
             creationController.initialAnswer2 = Answer3.currentTitle
             
         }
+    }
+    
+    @IBAction func didTapOnMultChoice(_ sender: Any) {
+        if mc {
+            multChoiceButton.setTitle("⥥", for: .normal)
+            Answer1.isHidden = true
+            Answer2.isHidden = true
+            Answer3.isHidden = true
+        } else {
+            multChoiceButton.setTitle("⥣", for: .normal)
+            Answer1.isHidden = false
+            Answer2.isHidden = false
+            Answer3.isHidden = false
+        }
+        
+        mc = !mc
     }
     
     @IBAction func didTapOnFlashCard(_ sender: Any) {
@@ -184,6 +204,12 @@ class ViewController: UIViewController {
         
         questionLabel.text = currFlashcard.question
         answerLabel.text = currFlashcard.answer
+        
+        if mc {
+            Answer1.isHidden = false
+            Answer2.isHidden = false
+            Answer3.isHidden = false
+        }
         
         Answer1.setTitle(currFlashcard.xAnswer1, for: .normal)
         Answer2.setTitle(currFlashcard.answer, for: .normal)
