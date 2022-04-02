@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var Answer1: UIButton!
     @IBOutlet weak var Answer2: UIButton!
     @IBOutlet weak var Answer3: UIButton!
+    
+    var correctAnswerButton: UIButton!
 
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
@@ -64,6 +66,31 @@ class ViewController: UIViewController {
             updatePrevNextButtons()
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //flashcard initially invisible, thens maller in size
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        Answer1.alpha = 0
+        Answer2.alpha = 0
+        Answer3.alpha = 0
+        Answer1.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        Answer2.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        Answer3.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.card.alpha = 1.0
+            self.Answer1.alpha = 1.0
+            self.Answer2.alpha = 1.0
+            self.Answer3.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+            self.Answer1.transform = CGAffineTransform.identity
+            self.Answer2.transform = CGAffineTransform.identity
+            self.Answer3.transform = CGAffineTransform.identity
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,31 +128,82 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnFlashCard(_ sender: Any) {
-        questionLabel.isHidden = !questionLabel.isHidden
+        flipFlashCard()
+    }
+    
+    func flipFlashCard(){
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {self.questionLabel.isHidden = !self.questionLabel.isHidden})
     }
     
     @IBAction func didTapAnswerOne(_ sender: Any) {
-        Answer1.isHidden = true
+        if Answer1 == correctAnswerButton {
+            flipFlashCard()
+            Answer2.isEnabled = false
+            Answer3.isEnabled = false
+        } else {
+            questionLabel.isHidden = false
+            Answer1.isEnabled = false
+        }
     }
     
     @IBAction func didTapAnswer2(_ sender: Any) {
-        questionLabel.isHidden = true
+        if Answer2 == correctAnswerButton {
+            flipFlashCard()
+            Answer1.isEnabled = false
+            Answer3.isEnabled = false
+        } else {
+            questionLabel.isHidden = false
+            Answer2.isEnabled = false
+        }
     }
     
     @IBAction func didTapAnswer3(_ sender: Any) {
-        Answer3.isHidden = true
+        if Answer3 == correctAnswerButton {
+            flipFlashCard()
+            Answer1.isEnabled = false
+            Answer2.isEnabled = false
+        } else {
+            questionLabel.isHidden = false
+            Answer3.isEnabled = false
+        }
     }
     
     @IBAction func didTapOnPrev(_ sender: Any) {
         currentIndex -= 1
-        updateLabels()
         updatePrevNextButtons()
+        animateCardOut2()
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
         currentIndex += 1
-        updateLabels()
         updatePrevNextButtons()
+        animateCardOut()
+    }
+    
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)}, completion: { finished in
+            self.updateLabels()
+            self.animateCardIn()
+        })
+    }
+    
+    func animateCardOut2(){
+        UIView.animate(withDuration: 0.3, animations: {self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)}, completion: { finished in
+            self.updateLabels()
+            self.animateCardIn2()
+        })
+    }
+    
+    func animateCardIn(){
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        UIView.animate(withDuration: 0.3, animations: {self.card.transform = CGAffineTransform.identity})
+    }
+    
+    func animateCardIn2(){
+        card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        
+        UIView.animate(withDuration: 0.3, animations: {self.card.transform = CGAffineTransform.identity})
     }
     
     @IBAction func didTapOnDelete(_ sender: Any) {
@@ -206,14 +284,25 @@ class ViewController: UIViewController {
         answerLabel.text = currFlashcard.answer
         
         if mc {
-            Answer1.isHidden = false
-            Answer2.isHidden = false
-            Answer3.isHidden = false
+            Answer1.isEnabled = true
+            Answer2.isEnabled = true
+            Answer3.isEnabled = true
         }
         
         Answer1.setTitle(currFlashcard.xAnswer1, for: .normal)
         Answer2.setTitle(currFlashcard.answer, for: .normal)
         Answer3.setTitle(currFlashcard.xAnswer2, for: .normal)
+        
+        let buttons = [Answer1, Answer2, Answer3].shuffled()
+        let answers = [currFlashcard.answer, currFlashcard.xAnswer1, currFlashcard.xAnswer2].shuffled()
+        
+        for (button, answer) in zip(buttons, answers) {
+            button?.setTitle(answer, for: .normal)
+            
+            if (answer == currFlashcard.answer){
+                correctAnswerButton = button
+            }
+        }
         
     }
     
