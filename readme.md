@@ -7,7 +7,7 @@ Animations, app icons, and random multiple choice generator.
 
 ### App Walk-though
 
-<img src="https://github.com/vilinh/Flashcards/blob/main/Lab4CodePath.gif?raw=true" width=200><br>
+<img src="https://github.com/vilinh/Flashcards/blob/main/Lab4Gif.gif?raw=true" width=200><br>
 
 ## Required
 - [X] User should see the app icon 
